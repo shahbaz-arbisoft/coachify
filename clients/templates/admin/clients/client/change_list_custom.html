@@ -1,0 +1,19 @@
+{% extends "admin/change_list.html" %}
+
+{% block breadcrumb %}
+    <div class="breadcrumbs">
+        <a href="{% url 'admin:index' %}">Home</a> &rsaquo;
+        {% for item in app_list %}
+            {% if forloop.last %}
+                {{ item.name }}
+            {% else %}
+                <a href="{{ item.admin_url }}">{{ item.name }}</a> &rsaquo;
+            {% endif %}
+        {% endfor %}
+        {% if title %}&rsaquo; {{ title }}{% endif %}
+    </div>
+{% endblock %}
+
+{% block result_list %}
+    {{ block.super }}
+{% endblock %}

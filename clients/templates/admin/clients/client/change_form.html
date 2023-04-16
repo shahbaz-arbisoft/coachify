@@ -1,0 +1,11 @@
+{% extends "admin/change_form.html" %}
+
+{% block submit_buttons_bottom %}
+    {{ block.super }}
+    {# Remove the "Save and continue editing" button #}
+    <script>
+        $(document).ready(function() {
+            $('input[name="_continue"]').hide();
+        });
+    </script>
+{% endblock %}
